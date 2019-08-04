@@ -1,6 +1,6 @@
 {
   "name": "js-markov",
-  "version": "2.0.4",
+  "version": "3.0.1",
   "description": "A JavaScript library to help you create Markov Chains",
   "main": "dist/markov.node.js",
   "scripts": {
@@ -23,12 +23,17 @@
   "author": "Edwin Pratt",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.4.0",
-    "@babel/preset-env": "^7.4.2",
-    "babel-eslint": "^10.0.1",
-    "babel-loader": "^8.0.5",
-    "eslint": "^5.15.3",
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.1"
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.1.0",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "webpack": "^4.37.0",
+    "webpack-cli": "^3.3.6"
   }
 }
