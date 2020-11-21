@@ -1,39 +1,43 @@
 {
-  "name": "js-markov",
-  "version": "3.0.2",
-  "description": "A JavaScript library to help you create Markov Chains",
-  "main": "dist/markov.node.js",
-  "scripts": {
-    "dev": "webpack --mode development",
-    "prod": "webpack --mode production"
-  },
-  "files": [
-    "dist/*",
-    "CONTRIBUTING.md"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Edwin-Pratt/js-markov.git"
-  },
-  "keywords": [
-    "simple",
-    "markov",
-    "chain"
-  ],
-  "author": "Edwin Pratt",
-  "license": "MIT",
-  "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@babel/preset-env": "^7.8.4",
-    "babel-eslint": "^10.0.3",
-    "babel-loader": "^8.0.6",
-    "eslint": "^6.8.0",
-    "eslint-config-standard": "^13.0.1",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-node": "^9.2.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "webpack": "^4.41.6",
-    "webpack-cli": "^3.3.10"
-  }
+    "name": "ts-markov",
+    "version": "3.0.2",
+    "description": "A JavaScript library to help you create Markov Chains",
+    "main": "dist/markov.node.js",
+    "scripts": {
+        "dev": "webpack --mode development",
+        "clean": "rm -r dist/*",
+        "eslint": "eslint src --ext .ts",
+        "prod": "webpack --mode production"
+    },
+    "files": [
+        "dist/*",
+        "CONTRIBUTING.md"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Edwin-Pratt/js-markov.git"
+    },
+    "keywords": [
+        "simple",
+        "markov",
+        "chain"
+    ],
+    "author": "Edwin Pratt",
+    "license": "MIT",
+    "devDependencies": {
+        "typescript": "*",
+        "tsc-watch": "*",
+        "@types/node": "*",
+        "@typescript-eslint/eslint-plugin": "*",
+        "@typescript-eslint/parser": "*",
+        "eslint": "*",
+        "eslint-plugin-node": "*",
+
+        "@babel/core": "*",
+        "@babel/preset-env": "*",
+        "babel-eslint": "*",
+        "babel-loader": "*",
+        "webpack": "*",
+        "webpack-cli": "*"
+    }
 }
