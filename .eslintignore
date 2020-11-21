@@ -2,3 +2,4 @@
 /node_modules
 /tests/browser/single-state.js
 /webpack.config.js
+/tsconfig.json
