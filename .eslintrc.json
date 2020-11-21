@@ -1,18 +1,106 @@
 {
-    "env": {
-        "browser": true,
-        "commonjs": true,
-        "es6": true,
-        "node": true
-    },
-    "extends": "standard",
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
-    },
-    "parserOptions": {
-        "ecmaVersion": 2018
-    },
-    "rules": {
-    }
+  "root": true,
+  "env": {
+    "es6": true,
+    "es2017": true,
+    "es2020": true
+  },
+  "extends": [
+    "eslint:recommended",
+    // "eslint:all",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "brace-style": [
+      "warn",
+      "1tbs",
+      {
+        "allowSingleLine": true
+      }
+    ],
+    "default-case": "warn",
+    "eqeqeq": [
+      "error",
+      "always"
+    ],
+    "function-call-argument-newline": [
+      "warn",
+      "consistent"
+    ],
+    "lines-between-class-members": "off",
+    "max-len": [
+      "error",
+      {
+        "code": 120,
+        "tabWidth": 4
+      }
+    ],
+    "no-extra-parens": "warn",
+    "no-magic-numbers": "off",
+    "no-underscore-dangle": "off",
+    "no-var": "error",
+    "nonblock-statement-body-position": [
+      "warn",
+      "beside"
+    ],
+    "object-curly-spacing": "off",
+    "one-var": [
+      "error",
+      "never"
+    ],
+    "padded-blocks": "off",
+    "prefer-const": "off",
+    "quotes": [
+      "warn",
+      "single",
+      {
+        "avoidEscape": true,
+        "allowTemplateLiterals": true
+      }
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "sort-imports": "off",
+    "space-before-function-paren": "off",
+    // https://github.com/typescript-eslint/typescript-eslint/issues/1845
+    "@typescript-eslint/explicit-function-return-type": [
+      "warn",
+      {
+        "allowExpressions": true,
+        "allowTypedFunctionExpressions": true,
+        "allowHigherOrderFunctions": true
+      }
+    ],
+    "@typescript-eslint/no-inferrable-types": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "args": "none",
+        "ignoreRestSiblings": false,
+        "varsIgnorePattern": "^_$"
+      }
+    ],
+    "@typescript-eslint/camelcase": "warn",
+    "@typescript-eslint/interface-name-prefix": [
+      "warn",
+      "always"
+    ]
+  }
 }
