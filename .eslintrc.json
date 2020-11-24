@@ -96,11 +96,6 @@
         "ignoreRestSiblings": false,
         "varsIgnorePattern": "^_$"
       }
-    ],
-    "@typescript-eslint/camelcase": "warn",
-    "@typescript-eslint/interface-name-prefix": [
-      "warn",
-      "always"
     ]
   }
 }
