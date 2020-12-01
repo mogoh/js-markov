@@ -35,15 +35,6 @@ export class Markov {
 
     }
 
-    // Add a single state or states
-    addStates(state: []): void {
-        if (Array.isArray(state)) {
-            this.states = state;
-        } else {
-            this.states.push(state);
-        }
-    }
-
     // Clear the Markov Chain completely
     clearChain(): void {
         this.states = [];
@@ -244,5 +235,14 @@ export class Markov {
 
 
 export class MarkovString extends Markov {
+    states: string[] = [];
 
+    // Add a single state or states
+    addStates(state: string | string[]): void {
+        if (Array.isArray(state)) {
+            this.states = state;
+        } else {
+            this.states.push(state);
+        }
+    }
 }
