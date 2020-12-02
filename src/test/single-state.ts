@@ -1,4 +1,4 @@
-import { MarkovString } from '../../src/markov';
+import { MarkovString } from '../markov.js';
 
 const markov = new MarkovString();
 

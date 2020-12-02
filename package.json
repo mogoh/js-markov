@@ -5,10 +5,14 @@
     "main": "dist/markov.node.js",
     "type": "module",
     "scripts": {
-        "dev": "webpack --mode development",
-        "clean": "rm -r dist/*",
+        "clean": "rm -r dist/*; rm -r temp/*",
         "eslint": "eslint src --ext .ts",
-        "prod": "webpack --mode production"
+        "rollup": "yarn rollup_development && yarn rollup_production",
+        "rollup_production": "rollup --config --environment BUILD:production",
+        "rollup_development": "rollup --config",
+        "tsc": "tsc",
+        "test_single_state": "yarn node ./temp/test/single-state.js",
+        "test_all": "yarn tsc; yarn test_single_state"
     },
     "files": [
         "dist/*",
@@ -26,19 +30,16 @@
     "author": "Edwin Pratt",
     "license": "MIT",
     "devDependencies": {
-        "typescript": "*",
-        "tsc-watch": "*",
+        "@rollup/plugin-node-resolve": "^11.0.0",
+        "@rollup/plugin-typescript": "^8.0.0",
         "@types/node": "*",
         "@typescript-eslint/eslint-plugin": "*",
         "@typescript-eslint/parser": "*",
         "eslint": "*",
         "eslint-plugin-node": "*",
-
-        "@babel/core": "*",
-        "@babel/preset-env": "*",
-        "babel-eslint": "*",
-        "babel-loader": "*",
-        "webpack": "*",
-        "webpack-cli": "*"
+        "rollup": "^2.34.0",
+        "rollup-plugin-terser": "^7.0.2",
+        "ts-node": "^9.0.0",
+        "typescript": "*"
     }
 }
