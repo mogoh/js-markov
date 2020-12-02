@@ -9,7 +9,10 @@ const min = isProduction ? 'min.' : '';
 
 export default [{
     input: [
-        './src/markov.ts',
+        './src/Markov.ts',
+        './src/MarkovString.ts',
+        './src/MarkovNumber.ts',
+        './src/MarkovGeneric.ts',
     ],
     output: {
         dir: 'dist/',

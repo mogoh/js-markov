@@ -12,7 +12,8 @@
         "rollup_development": "rollup --config",
         "tsc": "tsc",
         "test_single_state": "yarn node ./temp/test/single-state.js",
-        "test_all": "yarn tsc; yarn test_single_state"
+        "test_multiple_states": "yarn node ./temp/test/multiple-states.js",
+        "test_all": "yarn tsc; yarn test_single_state; yarn test_multiple_states"
     },
     "files": [
         "dist/*",
@@ -30,16 +31,16 @@
     "author": "Edwin Pratt",
     "license": "MIT",
     "devDependencies": {
-        "@rollup/plugin-node-resolve": "^11.0.0",
-        "@rollup/plugin-typescript": "^8.0.0",
+        "@rollup/plugin-node-resolve": "*",
+        "@rollup/plugin-typescript": "*",
         "@types/node": "*",
         "@typescript-eslint/eslint-plugin": "*",
         "@typescript-eslint/parser": "*",
         "eslint": "*",
         "eslint-plugin-node": "*",
-        "rollup": "^2.34.0",
-        "rollup-plugin-terser": "^7.0.2",
-        "ts-node": "^9.0.0",
+        "rollup": "*",
+        "rollup-plugin-terser": "*",
+        "ts-node": "*",
         "typescript": "*"
     }
 }
