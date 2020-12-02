@@ -13,27 +13,3 @@ If the code was refactored, please test that it works and is written clearly.
 If you notice that there is a grammatical error (be it spelling, punctuation, etc), feel free to correct that error.
 
 If something is missing (e.g., a piece of code), you are free to add the information.
-
-## Bugs and Issues
-
-If you see a bug or an issue, please look through the [Issues](github.com/Edwin-Pratt/js-markov/issues) tab.
-
-If the bug which you are reporting is not found, feel free to open an issue.
-
-Here is a basic template:
-
-- Where did this bug appear?
-  
-  - [ ] Browser: `Name` `Version`
-
-  - [ ] Node.js: `Version`
-
-- What was the error?
-
-<br>
-
-- How can we reproduce the error?
-
-<br>
-
----
