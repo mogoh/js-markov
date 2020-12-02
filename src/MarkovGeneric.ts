@@ -1,7 +1,4 @@
-import { Markov } from './Markov.js';
-
-
-export class MarkovGeneric<T> extends Markov {
+export class MarkovGeneric<T> {
     // This is an array that will hold all of our states
     states: T[] = [];
     // This array will keep track of all the possible ways to start a sentence
@@ -23,6 +20,21 @@ export class MarkovGeneric<T> extends Markov {
             return this.possibilities[possibility];
         } else {
             throw new Error(`There is no such possibility called ${possibility}`);
+        }
+    }
+
+    // Generate a random value
+    random(obj: string[] | number[] | string, type: 'array' | 'object'): string | number {
+        if (Array.isArray(obj) && type === 'array') {
+            const index = Math.floor(Math.random() * obj.length);
+            return obj[index];
+        } else if (typeof obj === 'object' && type === 'object') {
+            const keys = Object.keys(obj);
+            const index = Math.floor(Math.random() * keys.length);
+            return keys[index];
+        } else {
+            // TODO
+            throw new Error('TODO');
         }
     }
 
