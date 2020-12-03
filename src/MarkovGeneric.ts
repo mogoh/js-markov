@@ -1,4 +1,4 @@
-export class MarkovGeneric<T> {
+export class MarkovGeneric<T extends string | number> {
     // This is an array that will hold all of our states
     states: T[] = [];
     // This array will keep track of all the possible ways to start a sentence

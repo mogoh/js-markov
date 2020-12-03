@@ -1,23 +1,3 @@
-
-export class ArrayKeyedMap<K extends Array<K>, V> extends Map<K, V> {
-
-    // get(key: K[]): V {
-    //     this.
-    //         return;
-    // }
-
-    has(key: K[]): boolean {
-
-        for (let k of this.keys) {
-            if (compareArray<K>(key,k)) {
-                return true;
-            }
-        }
-        return false;
-    }
-}
-
-
 // Taken from https://stackoverflow.com/questions/7837456/how-to-compare-arrays-in-javascript
 // Works only on flat arrays.
 // Works only when elements are comparable.
@@ -34,4 +14,26 @@ export function compareArray<T>(arrayA: Array<T>, arrayB: Array<T>): boolean {
         }
     }
     return true;
+}
+
+export class ArrayKeyedMap<K extends Array<K>, V> extends Map<K, V> {
+
+    // get(key: K[]): V | undefined {
+        // for (let {[}k, v} of this.entries()) {
+        //     if (compareArray<K>(key,k)) {
+        //         return true;
+        //     }
+        // }
+
+        // return undefined;
+    // }
+
+    has(key: K[]): boolean {
+        for (let k of this.keys()) {
+            if (compareArray<K>(key,k)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
