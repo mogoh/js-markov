@@ -1,13 +1,13 @@
 export class MarkovGeneric<T extends string | number> {
     // This is an array that will hold all of our states
-    states: T[] = [];
+    states: T[][] = [];
     // This array will keep track of all the possible ways to start a sentence
-    start: T[] = [];
+    start: T[][] = [];
     // This variable holds the order
     order: number = 3;
     // This is an object which will contain a list of each possible outcome
-    possibilities: { [key: T]: T[]; } = {};
-    foo: Map<T[],T[]> = new Map<T[],T[]>();
+    possibilities: Map<T[][],T[][]> = new Map<T[][],T[][]>();
+    foo: Map<T[][],T[][]> = new Map<T[][],T[][]>();
 
     // Clear the possibilities
     clearPossibilities(): void {
