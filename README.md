@@ -18,10 +18,6 @@
 
 ---
 
-## Live demo
-
-A live demo of js-markov can be seen on [JavaScript repo name generator](https://Edwin-Pratt.github.io/js-markov/).
-
 ## Code Example
 
 The following example shows the basic usage js-markov:
