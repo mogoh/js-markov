@@ -1,19 +1,19 @@
-import { MarkovNumber } from '../MarkovNumber.js';
+// import { MarkovNumber } from '../MarkovNumber.js';
 
-const markov = new MarkovNumber();
+// const markov = new MarkovNumber();
 
-const numericData: { [key: number]: number[]; } =  {
-    1: [2, 3],
-    2: [3, 1],
-    3: [2, 1],
-};
+// const numericData: { [key: number]: number[]; } =  {
+//     1: [2, 3],
+//     2: [3, 1],
+//     3: [2, 1],
+// };
 
-markov.addStates(numericData);
+// markov.addStates(numericData);
 
-markov.train();
+// markov.train();
 
-console.log(markov.generateRandom(100));
-console.log(markov.predict(1));
-console.log(markov.predict(2));
-console.log(markov.predict(3));
-console.log(markov.predict(4)); // Will give an error
+// console.log(markov.generateRandom(100));
+// console.log(markov.predict(1));
+// console.log(markov.predict(2));
+// console.log(markov.predict(3));
+// console.log(markov.predict(4)); // Will give an error

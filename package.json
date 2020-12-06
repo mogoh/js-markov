@@ -2,8 +2,9 @@
     "name": "ts-markov",
     "version": "3.0.2",
     "description": "A JavaScript library to help you create Markov Chains",
-    "main": "dist/markov.node.js",
+    "main": "dist/MarkovString.js",
     "type": "module",
+    "types": "dist/MarkovString.d.ts",
     "scripts": {
         "clean": "rm -r dist/*; rm -r temp/*",
         "eslint": "eslint src --ext .ts",
