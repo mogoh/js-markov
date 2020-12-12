@@ -1,6 +1,6 @@
 # js-markov
 
-This is a fork of js-markov.
+This is a fork of [js-markov](https://github.com/Edwin-Pratt/js-markov) by Edwin Pratt.
 It is still a work in progress.
 
 **ts-markov** is a JavaScript library that allows you to create powerful, yet simple Markov Chains.

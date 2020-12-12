@@ -11,10 +11,7 @@
         "rollup": "yarn rollup_development && yarn rollup_production",
         "rollup_prod": "rollup --config --environment BUILD:production",
         "rollup_dev": "rollup --config",
-        "tsc": "tsc",
-        "test_single_state": "yarn node ./temp/test/single-state.js",
-        "test_multiple_states": "yarn node ./temp/test/multiple-states.js",
-        "test_all": "yarn tsc; yarn test_single_state; yarn test_multiple_states"
+        "tsc": "tsc"
     },
     "files": [
         "dist/*"
@@ -26,9 +23,11 @@
     "keywords": [
         "simple",
         "markov",
-        "chain"
+        "markow",
+        "chain",
+        "typescript"
     ],
-    "author": "Leonhard Küper",
+    "author": "Leonhard Küper <leonhard.kueper@mogoh.de> (https://mogoh.de)",
     "license": "MIT",
     "devDependencies": {
         "@rollup/plugin-node-resolve": "*",
