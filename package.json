@@ -14,7 +14,7 @@
         "tsc": "tsc"
     },
     "files": [
-        "dist/*"
+        "dist/**/*"
     ],
     "repository": {
         "type": "git",
