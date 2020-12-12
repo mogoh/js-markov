@@ -9,15 +9,14 @@ const min = isProduction ? 'min.' : '';
 
 export default [{
     input: [
+        './src/index.ts',
         // './src/Markov.ts',
-        './src/MarkovString.ts',
         // './src/MarkovNumber.ts',
         // './src/MarkovGeneric.ts',
     ],
     output: {
         dir: 'dist/',
         format: 'esm',
-        entryFileNames: `[name].${min}js`,
         sourcemap: !isProduction,
         compact: isProduction,
         minifyInternalExports: isProduction,
