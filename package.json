@@ -1,6 +1,6 @@
 {
     "name": "ts-markov",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "A TypeScript library to help you create Markov Chains",
     "main": "dist/index.js",
     "type": "module",
