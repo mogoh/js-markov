@@ -1,7 +1,7 @@
 {
     "name": "ts-markov",
-    "version": "3.0.2",
-    "description": "A JavaScript library to help you create Markov Chains",
+    "version": "0.0.2",
+    "description": "A TypeScript library to help you create Markov Chains",
     "main": "dist/MarkovString.js",
     "type": "module",
     "types": "dist/MarkovString.d.ts",
@@ -9,27 +9,26 @@
         "clean": "rm -r dist/*; rm -r temp/*",
         "eslint": "eslint src --ext .ts",
         "rollup": "yarn rollup_development && yarn rollup_production",
-        "rollup_production": "rollup --config --environment BUILD:production",
-        "rollup_development": "rollup --config",
+        "rollup_prod": "rollup --config --environment BUILD:production",
+        "rollup_dev": "rollup --config",
         "tsc": "tsc",
         "test_single_state": "yarn node ./temp/test/single-state.js",
         "test_multiple_states": "yarn node ./temp/test/multiple-states.js",
         "test_all": "yarn tsc; yarn test_single_state; yarn test_multiple_states"
     },
     "files": [
-        "dist/*",
-        "CONTRIBUTING.md"
+        "dist/*"
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/Edwin-Pratt/js-markov.git"
+        "url": "https://github.com/mogoh/ts-markov.git"
     },
     "keywords": [
         "simple",
         "markov",
         "chain"
     ],
-    "author": "Edwin Pratt",
+    "author": "Leonhard Küper",
     "license": "MIT",
     "devDependencies": {
         "@rollup/plugin-node-resolve": "*",
