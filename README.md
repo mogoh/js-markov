@@ -5,6 +5,10 @@ It is still a work in progress.
 
 **ts-markov** is a JavaScript library that allows you to create powerful, yet simple Markov Chains.
 
+## TODO
+
+* Add short State Chains.
+
 ## Introduction
 
 - **What are Markov Chains?**

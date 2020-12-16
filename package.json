@@ -6,7 +6,7 @@
     "type": "module",
     "types": "dist/index.d.ts",
     "scripts": {
-        "clean": "rm -r dist/*; rm -r temp/*",
+        "clean": "rm -r dist/*",
         "eslint": "eslint src --ext .ts",
         "rollup": "yarn rollup_development && yarn rollup_production",
         "rollup_prod": "rollup --config --environment BUILD:production",
@@ -40,6 +40,11 @@
         "rollup": "*",
         "rollup-plugin-terser": "*",
         "ts-node": "*",
+        "tslib": "*",
+        "type-fest": "*",
         "typescript": "*"
+    },
+    "dependencies": {
+        "array-keyed-map": "*"
     }
 }

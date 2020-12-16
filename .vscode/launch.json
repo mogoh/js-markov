@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/temp/test/single-state.js",
+            "program": "${workspaceFolder}/dist/test/TestMarkov.js",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ]

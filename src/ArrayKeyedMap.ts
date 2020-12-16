@@ -1,64 +1,51 @@
-// type NestedArray =
-//     | string[]
-//     | number[]
-//     | boolean[]
-//     | NestedArray[];
+import { Primitive } from './types.js'
 
-// // Taken from https://stackoverflow.com/questions/7837456/how-to-compare-arrays-in-javascript
-// // Works only when primetives are string, number, or boolean.
-// export function compareArray(arrayA: NestedArray, arrayB: NestedArray): boolean {
-//     // compare lengths - can save a lot of time 
-//     if (arrayA.length !== arrayB.length) {
-//         return false;
-//     }
 
-//     for (let i = 0; i < arrayA.length; i += 1) {
+export class ArrayKeyedMap<K extends Primitive[], V> {
+    #map: [K, V][] = [];
 
-//         if (Array.isArray(arrayA[i]) !== Array.isArray(arrayB[i])) {
-//             // If one element is array, but the other isn't.
-//             return false;
-//         } else {
-//             if (Array.isArray(arrayA[i]) && Array.isArray(arrayB[i])) {
-//                 // if both are arrays, call recursive.
-//                 if (!compareArray(arrayA[i] as NestedArray, arrayB[i] as NestedArray)) {
-//                     return false;
-//                 }
-//             }
-//         }
+    get(search_key: K): V | undefined {
+        for (let kv of this.#map) {
+            if (kv[0].length === search_key.length) {
+                let equal = true;
+                for (let i = 0; i < kv[0].length; i += 1) {
+                    if (kv[0][i] !== search_key[i]) {
+                        equal = false;
+                        break;
+                    }
+                }
+                if (equal) {
+                    return kv[1];
+                }
+            }
+        }
+        return undefined;
+    }
 
-//         if (arrayA[i] !== arrayB[i]) {
-//             return false;
-//         }
-//     }
-//     return true;
-// }
+    set(key: K, value: V): void {
+        for (let kv of this.#map) {
+            if (kv[0].length === key.length) {
+                let equal = true;
+                for (let i = 0; i < kv[0].length; i += 1) {
+                    if (kv[0][i] !== key[i]) {
+                        equal = false;
+                        break;
+                    }
+                }
+                if (equal) {
+                    kv[1] = value;
+                    return;
+                }
+            }
+        }
+        this.#map.push([key, value]);
+    }
 
-// export class ArrayKeyedMap<K extends NestedArray, V> extends Map<K, V> {
-//     delete(key: K): boolean {
-//         // TODO
-//         return false;
-//     }
-
-//     set(key: K, value: V): this {
-//         // TODO
-//         return this;
-//     }
-
-//     get(key: K): V | undefined {
-//         for (let [k, v] of this.entries()) {
-//             if (compareArray(key, k)) {
-//                 return v;
-//             }
-//         }
-//         return undefined;
-//     }
-
-//     has(key: K): boolean {
-//         for (let k of this.keys()) {
-//             if (compareArray(key, k)) {
-//                 return true;
-//             }
-//         }
-//         return false;
-//     }
-// }
+    toString(): string {
+        let return_string = '';
+        for (let kv of this.#map) {
+            return_string += `[${kv[0]}] => ${kv[1]}\n`;
+        }
+        return return_string;
+    }
+}
