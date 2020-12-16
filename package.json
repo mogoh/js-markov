@@ -1,6 +1,6 @@
 {
     "name": "ts-markov",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "description": "A TypeScript library to help you create Markov Chains",
     "main": "dist/index.js",
     "type": "module",
@@ -11,7 +11,8 @@
         "rollup": "yarn rollup_development && yarn rollup_production",
         "rollup_prod": "rollup --config --environment BUILD:production",
         "rollup_dev": "rollup --config",
-        "tsc": "tsc"
+        "tsc": "tsc",
+        "test": "node dist/test.js"
     },
     "files": [
         "dist/**/*"
@@ -43,5 +44,8 @@
         "tslib": "*",
         "typescript": "*"
     },
-    "dependencies": {}
+    "dependencies": {
+        "@types/lodash": "*",
+        "lodash": "*"
+    }
 }

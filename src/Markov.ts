@@ -19,6 +19,22 @@ export class Markov {
         this.setOrder(order);
     }
 
+    getText(): Text {
+        return this.text;
+    }
+
+    getStart(): Sentence[] {
+        return this.start;
+    }
+
+    getOrder(): number {
+        return this.order;
+    }
+
+    getPossibilities(): ArrayKeyedMap<Word[], Word[]> {
+        return this.possibilities;
+    }
+
     // Get the whole list of possibilities or a single possibility
     getPossibility(possibility: Word[]): Word[] | undefined {
         return this.possibilities.get(possibility);
@@ -42,11 +58,6 @@ export class Markov {
         this.text = this.text.concat(text);
     }
 
-    // Clear the possibilities
-    clearPossibilities(): void {
-        this.possibilities = new ArrayKeyedMap();
-    }
-
     // Clear the Markov Chain completely
     clearChain(): void {
         this.text = [];
@@ -57,13 +68,13 @@ export class Markov {
 
     // Clear the states
     clearState(): void {
-        this.text = [];
         this.start = [];
+        this.possibilities = new ArrayKeyedMap();
     }
 
     // Train the markov chain
     train(): void {
-        this.clearPossibilities();
+        this.clearState();
         // For each sentence
         for (let i = 0; i < this.text.length; i += 1) {
             // Fill the Start

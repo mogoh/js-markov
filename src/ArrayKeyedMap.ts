@@ -1,22 +1,33 @@
 import { Primitive } from './types.js';
+import { default as lodash } from 'lodash';
 
 
 export class ArrayKeyedMap<K extends Primitive[], V> {
     #map: [K, V][] = [];
 
+    // ToDo
+    // Static properties
+    // get Map[@@species]
+
+    // Instance properties
+    // Map.prototype.size
+
+    // Instance methods
+    // Map.prototype.clear()
+    // Map.prototype.delete(key)
+    // Map.prototype.has(key)
+
+    // Iteration methods
+    // Map.prototype[@@iterator]()
+    // Map.prototype.keys()
+    // Map.prototype.values()
+    // Map.prototype.entries()
+    // Map.prototype.forEach(callbackFn[, thisArg])
+
     get(search_key: K): V | undefined {
         for (let kv of this.#map) {
-            if (kv[0].length === search_key.length) {
-                let equal = true;
-                for (let i = 0; i < kv[0].length; i += 1) {
-                    if (kv[0][i] !== search_key[i]) {
-                        equal = false;
-                        break;
-                    }
-                }
-                if (equal) {
-                    return kv[1];
-                }
+            if (lodash.isEqual(kv[0], search_key)) {
+                return kv[1];
             }
         }
         return undefined;
@@ -24,18 +35,9 @@ export class ArrayKeyedMap<K extends Primitive[], V> {
 
     set(key: K, value: V): void {
         for (let kv of this.#map) {
-            if (kv[0].length === key.length) {
-                let equal = true;
-                for (let i = 0; i < kv[0].length; i += 1) {
-                    if (kv[0][i] !== key[i]) {
-                        equal = false;
-                        break;
-                    }
-                }
-                if (equal) {
-                    kv[1] = value;
-                    return;
-                }
+            if (lodash.isEqual(kv[0], key)) {
+                kv[1] = value;
+                return;
             }
         }
         this.#map.push([key, value]);
