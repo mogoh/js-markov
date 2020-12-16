@@ -1,110 +1,120 @@
-export class MarkovString {
+// See LICENSE-file for license.
+// See CONTRIBUTORS-file for contributors and copyright.
+abstract class Markov {
+    // Generate a random value
+    random(obj: string[] | number[] | string, type: 'array' | 'object'): string | number {
+        if (Array.isArray(obj) && type === 'array') {
+            const index = Math.floor(Math.random() * obj.length);
+            return obj[index];
+        } else if (typeof obj === 'object' && type === 'object') {
+            const keys = Object.keys(obj);
+            const index = Math.floor(Math.random() * keys.length);
+            return keys[index];
+        } else {
+            // TODO
+            throw new Error('TODO');
+        }
+    }
+}
+
+export class MarkovString extends Markov {
     // This is an array that will hold all of our states
-    #text: string[] = [];
+    states: string[] = [];
     // This array will keep track of all the possible ways to start a sentence
-    #start: string[] = [];
+    start: string[] = [];
     // This variable holds the order
-    #order: number = 3;
+    order: number = 3;
     // This is an object which will contain a list of each possible outcome
-    #possibilities = new Map<string, string[]>();
+    possibilities: { [key: string]: string[]; } = {};
 
-
-    constructor(order: number = 3) {
-        this.setOrder(order);
+    // Clear the possibilities
+    clearPossibilities(): void {
+        this.possibilities = {};
     }
 
-
     // Get the whole list of possibilities or a single possibility
-    getPossibilities(possibility: string): string[] | undefined {
-        return this.#possibilities.get(possibility);
+    getPossibilities(possibility: string): string[] | { [key: string]: string[]; } {
+        if (this.possibilities[possibility] !== undefined) {
+            return this.possibilities[possibility];
+        } else {
+            throw new Error(`There is no such possibility called ${possibility}`);
+        }
     }
 
     // Get the order
     getOrder(): number {
-        return this.#order;
+        return this.order;
     }
 
     // Set the order
-    setOrder(order: number): void {
+    setOrder(order: number = 3): void {
         if (order <= 0) {
-            throw new Error('Markov.setOrder: Order is not a positive number.');
-        } else {
-            this.#order = order;
+            console.error(
+                'Markov.setOrder: Order is not a positive number. Defaulting to 3.'
+            );
         }
+
+        this.order = order;
     }
 
-    addSentence(sentence: string): void {
-        this.#text.push(sentence);
-    }
-
-    // Add Text as Array.
-    addText(state: string[]): void {
-        this.#text.concat(state);
-    }
-
-    // Clear the possibilities
-    clearPossibilities(): void {
-        this.#possibilities = new Map<string, string[]>();
+    // Add a single state or states
+    addStates(state: string | string[]): void {
+        if (Array.isArray(state)) {
+            this.states = state;
+        } else {
+            this.states.push(state);
+        }
     }
 
     // Clear the Markov Chain completely
     clearChain(): void {
-        this.#text = [];
-        this.#start = [];
-        this.#possibilities = new Map<string, string[]>();
-        this.#order = 3;
+        this.states = [];
+        this.start = [];
+        this.possibilities = {};
+        this.order = 3;
     }
 
     // Clear the states
     clearState(): void {
-        this.#text = [];
-        this.#start = [];
+        this.states = [];
+        this.start = [];
     }
 
     // Train the markov chain
     train(): void {
         this.clearPossibilities();
 
-        for (let i = 0; i < this.#text.length; i++) {
-            this.#start.push(this.#text[i].substring(0, this.#order));
+        for (let i = 0; i < this.states.length; i++) {
+            this.start.push(this.states[i].substring(0, this.order));
 
-            for (let j = 0; j <= this.#text[i].length - this.#order; j++) {
-                const state = this.#text[i].substring(j, j + this.#order);
+            for (let j = 0; j <= this.states[i].length - this.order; j++) {
+                const gram = this.states[i].substring(j, j + this.order);
 
-                let transition: string[] | undefined = this.#possibilities.get(state);
-                if (transition === undefined) {
-                    this.#possibilities.set(state, [this.#text[i].charAt(j + this.#order)]);
-                } else {
-                    transition.push(this.#text[i].charAt(j + this.#order));
+                if (!this.possibilities[gram]) {
+                    this.possibilities[gram] = [];
                 }
+
+                this.possibilities[gram].push(this.states[i].charAt(j + this.order));
             }
         }
-        console.debug(this.#start);
-        console.debug(this.#possibilities);
-    }
-
-    // Generate a random value
-    choice(obj: string[]): string {
-        const index = Math.floor(Math.random() * obj.length);
-        return obj[index];
     }
 
     // Generate output
     generateRandom(chars = 15): string {
-        const startingState: string = this.choice(this.#start) as string;
+        const startingState = this.random(this.start, 'array') as string;
         let result: string = startingState;
-        let current: string = startingState;
-        let next: string = '';
+        let current = startingState;
+        let next = '';
 
-        for (let i = 0; i < chars - this.#order; i += 1) {
-            next = this.choice((this.#possibilities.get(current)) as string[]);
+        for (let i = 0; i < chars - this.order; i++) {
+            next = this.random(this.possibilities[current], 'array') as string;
 
             if (!next) {
                 break;
             }
 
             result += next;
-            current = result.substring(result.length - this.#order, result.length);
+            current = result.substring(result.length - this.order, result.length);
         }
 
         return result;
