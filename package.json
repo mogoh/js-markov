@@ -41,10 +41,7 @@
         "rollup-plugin-terser": "*",
         "ts-node": "*",
         "tslib": "*",
-        "type-fest": "*",
         "typescript": "*"
     },
-    "dependencies": {
-        "array-keyed-map": "*"
-    }
+    "dependencies": {}
 }

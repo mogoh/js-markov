@@ -85,8 +85,8 @@ export class Markov {
 
     // Pick a random T from T[]
     choice<T>(list: T[]): T {
-        const index = Math.floor(Math.random() * list.length);
-        return list[index];
+        const i = Math.floor(Math.random() * list.length);
+        return list[i];
     }
 
     // Generate output
